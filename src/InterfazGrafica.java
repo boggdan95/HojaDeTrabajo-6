@@ -17,8 +17,17 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class InterfazGrafica.
+ */
 public class InterfazGrafica {
 
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			/* (non-Javadoc)
@@ -35,34 +44,85 @@ public class InterfazGrafica {
 		});
 	}
 
+	/** The frame. */
 	private JFrame frame;
+	
+	/** The evento. */
 	private Evento evento= new Evento();
+	
+	/** The rdbtn hashset. */
 	private JRadioButton rdbtnHashset;
+	
+	/** The rdbtn treeset. */
 	private JRadioButton rdbtnTreeset;
+	
+	/** The rdbtn linkedhashset. */
 	private JRadioButton rdbtnLinkedhashset;
+	
+	/** The btn seleccion implemeentacion. */
 	private JButton btnSeleccionImplemeentacion;
+	
+	/** The text area. */
 	private JTextArea textArea;
+	
+	/** The btn agregar desarrolladores. */
 	private JButton btnAgregarDesarrolladores;
+	
+	/** The check box java agregar. */
 	private JCheckBox checkBoxJavaAgregar;
+	
+	/** The check box web agregar. */
 	private JCheckBox checkBoxWebAgregar;
+	
+	/** The check box celular agregar. */
 	private JCheckBox checkBoxCelularAgregar;
+	
+	/** The check box web consultar. */
 	private JCheckBox checkBoxWebConsultar;
+	
+	/** The check box java consultar. */
 	private JCheckBox checkBoxJavaConsultar;
+	
+	/** The check box celular consultar. */
 	private JCheckBox checkBoxCelularConsultar;
+	
+	/** The btn mostrar desarrolladores. */
 	private JButton btnMostrarDesarrolladores;
+	
+	/** The text area_1. */
 	private JTextArea textArea_1;
+	
+	/** The lbl los desarrolladores de. */
 	private JLabel lblLosDesarrolladoresDe;
+	
+	/** The btn conjunto mas grande. */
 	private JButton btnConjuntoMasGrande;
+	
+	/** The label. */
 	private JLabel label;
+	
+	/** The btn todos. */
 	private JButton btnTodos;
+	
+	/** The btn java sin web. */
 	private JButton btnJavaSinWeb;
+	
+	/** The btn web y celulares. */
 	private JButton btnWebYCelulares;
+	
+	/** The btn web o celularessin. */
 	private JButton btnWebOCelularessin;
 	
+	/**
+	 * Instantiates a new interfaz grafica.
+	 */
 	public InterfazGrafica(){
 		initialize();
 	}
 	
+	/**
+	 * Initialize.
+	 */
 	public void initialize(){
 		frame = new JFrame();
 		frame.setBounds(100, 100, 665, 488);
@@ -220,15 +280,38 @@ public class InterfazGrafica {
 		frame.getContentPane().add(btnWebOCelularessin);
 	}
 	
+	/**
+	 * The Class Evento.
+	 */
 	private class Evento implements ActionListener{
+		
+		/** The metodo. */
 		private int metodo=0;
+		
+		/** The java. */
 		private boolean java=false;
+		
+		/** The web. */
 		private boolean web=false;
+		
+		/** The celular. */
 		private boolean celular=false;
+		
+		/** The java mostrar. */
 		private boolean javaMostrar=false;
+		
+		/** The web mostrar. */
 		private boolean webMostrar=false;
+		
+		/** The celular mostrar. */
 		private boolean celularMostrar=false;
+		
+		/** The manejador. */
 		private ManejadorDeListas manejador = new ManejadorDeListas();
+		
+		/* (non-Javadoc)
+		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
+		 */
 		public void actionPerformed(ActionEvent e) {
 			if(e.getSource()==rdbtnHashset){
 				rdbtnTreeset.setSelected(false);

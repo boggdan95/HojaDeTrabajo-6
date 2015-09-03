@@ -5,16 +5,43 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+/**
+ * @author Boggdan Barrientos, Rudy Garrido
+ * @03 de septiembre de 2015
+ * @Hoja de trabajo # 6
+ */
 
+
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ManejadorDeListas.
+ */
 public class ManejadorDeListas {
 	
+	/** The lista desarrolladores java. */
 	private Set<String> listaDesarrolladoresJava;
+	
+	/** The lista desarrolladores web. */
 	private Set<String> listaDesarrolladoresWeb;
+	
+	/** The lista desarrolladores celular. */
 	private Set<String> listaDesarrolladoresCelular;
+	
+	/** The mayor. */
 	private int mayor=-1;
+	
+	/**
+	 * Instantiates a new manejador de listas.
+	 */
 	public ManejadorDeListas() {
 		
 	}
+	
+	/**
+	 * Seleccionar tipo de lista.
+	 *
+	 * @param metodo the metodo
+	 */
 	public void seleccionarTipoDeLista(int metodo){
 		switch(metodo){
 			case 1:
@@ -37,6 +64,15 @@ public class ManejadorDeListas {
 			
 		}
 	}
+	
+	/**
+	 * Agregar desarrolladores.
+	 *
+	 * @param desarrolladores the desarrolladores
+	 * @param java the java
+	 * @param web the web
+	 * @param celular the celular
+	 */
 	public void agregarDesarrolladores(String desarrolladores, boolean java, boolean web, boolean celular){
 	     String[] desarrolladoresSeparados = desarrolladores.split("\\n");
 	     System.out.println(java);
@@ -52,6 +88,15 @@ public class ManejadorDeListas {
 	     System.out.println(listaDesarrolladoresWeb.size());
 	     System.out.println(listaDesarrolladoresCelular.size());
 	}
+	
+	/**
+	 * Consultar desarrolladores.
+	 *
+	 * @param java the java
+	 * @param web the web
+	 * @param celular the celular
+	 * @return the string
+	 */
 	public String consultarDesarrolladores(boolean java, boolean web, boolean celular){
 		String consulta="Los desarrolladores son";
 		
@@ -80,6 +125,12 @@ public class ManejadorDeListas {
 		}
 		return consulta;
 	}
+	
+	/**
+	 * Es subconjunto.
+	 *
+	 * @return true, if successful
+	 */
 	public boolean esSubconjunto(){
 		if(listaDesarrolladoresJava.size()<=listaDesarrolladoresWeb.size()){
 			for(String desarrollador: listaDesarrolladoresJava){
@@ -91,6 +142,12 @@ public class ManejadorDeListas {
 			return false;
 		}
 	}
+	
+	/**
+	 * Seleccionar conjunto mayor.
+	 *
+	 * @return the int
+	 */
 	public int seleccionarConjuntoMayor(){
 		if(listaDesarrolladoresJava.size()>listaDesarrolladoresWeb.size() && listaDesarrolladoresJava.size()>listaDesarrolladoresCelular.size()){
 			mayor=1;
@@ -104,6 +161,11 @@ public class ManejadorDeListas {
 		return mayor;
 	}
 	
+	/**
+	 * Consultar conjunto mayor.
+	 *
+	 * @return the string
+	 */
 	public String consultarConjuntoMayor(){
 		String consulta="Los desarrolladores son";
 		ArrayList<String> listaOrdenada;
@@ -132,6 +194,12 @@ public class ManejadorDeListas {
 				return "No existe un conjunto con tamaño \n mayor que el resto";
 		}
 	}
+	
+	/**
+	 * Obtener java sin web.
+	 *
+	 * @return the string
+	 */
 	public String obtenerJavaSinWeb() {
 		boolean bandera = false;
 		String consulta="Los desarrolladores son";
@@ -147,6 +215,12 @@ public class ManejadorDeListas {
 			return "No hay desarrolladores";
 		}
 	}
+	
+	/**
+	 * Obtener webo celulares sin java.
+	 *
+	 * @return the string
+	 */
 	public String obtenerWeboCelularesSinJava() {
 		TreeSet<String> lista = new TreeSet<String>();
 		for(String desarrollador: listaDesarrolladoresWeb){
@@ -169,6 +243,12 @@ public class ManejadorDeListas {
 			return consulta;
 		}
 	}
+	
+	/**
+	 * Obtener weby celulares sin java.
+	 *
+	 * @return the string
+	 */
 	public String obtenerWebyCelularesSinJava() {
 		TreeSet<String> lista = new TreeSet<String>();
 		for(String desarrollador: listaDesarrolladoresWeb){
