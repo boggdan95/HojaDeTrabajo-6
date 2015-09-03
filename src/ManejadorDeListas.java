@@ -104,4 +104,97 @@ public class ManejadorDeListas {
 		return mayor;
 	}
 	
+	public String consultarConjuntoMayor(){
+		String consulta="Los desarrolladores son";
+		ArrayList<String> listaOrdenada;
+		switch(mayor){
+			case 1:
+				listaOrdenada= new ArrayList<String>(listaDesarrolladoresJava);
+				Collections.sort(listaOrdenada);
+				for(String desarrollador: listaOrdenada){
+						consulta=consulta+"\n"+desarrollador;
+				}
+				return consulta;
+			case 2:
+				listaOrdenada= new ArrayList<String>(listaDesarrolladoresWeb);
+				Collections.sort(listaOrdenada);
+				for(String desarrollador: listaOrdenada){
+					consulta=consulta+"\n"+desarrollador;
+				}
+			return consulta;
+			case 3:
+				listaOrdenada= new ArrayList<String>(listaDesarrolladoresCelular);
+				Collections.sort(listaOrdenada);
+				for(String desarrollador: listaOrdenada){
+					consulta=consulta+"\n"+desarrollador;
+				}
+			default:
+				return "No existe un conjunto con tamaño \n mayor que el resto";
+		}
+	}
+	public String obtenerJavaSinWeb() {
+		boolean bandera = false;
+		String consulta="Los desarrolladores son";
+		for(String desarrollador: listaDesarrolladoresJava){
+			if(!listaDesarrolladoresWeb.contains(desarrollador)){
+				bandera=true;
+				consulta=consulta+"\n"+desarrollador;
+			}
+		}
+		if(bandera){
+			return consulta;
+		}else{
+			return "No hay desarrolladores";
+		}
+	}
+	public String obtenerWeboCelularesSinJava() {
+		TreeSet<String> lista = new TreeSet<String>();
+		for(String desarrollador: listaDesarrolladoresWeb){
+			if(!listaDesarrolladoresJava.contains(desarrollador))
+				lista.add(desarrollador);
+		}
+		for(String desarrollador: listaDesarrolladoresCelular){
+			if(!listaDesarrolladoresJava.contains(desarrollador)){
+				if(!lista.contains(desarrollador))
+					lista.add(desarrollador);
+			}
+		}
+		if(lista.isEmpty()){
+			return "No hay desarrolladores";
+		}else{
+			String consulta="Los desarrolladores son";
+			for(String desarrollador: lista){
+				consulta=consulta+"\n"+desarrollador;
+			}
+			return consulta;
+		}
+	}
+	public String obtenerWebyCelularesSinJava() {
+		TreeSet<String> lista = new TreeSet<String>();
+		for(String desarrollador: listaDesarrolladoresWeb){
+			if(!listaDesarrolladoresJava.contains(desarrollador)){
+				if(listaDesarrolladoresCelular.contains(desarrollador))
+					lista.add(desarrollador);
+			}
+		}
+		for(String desarrollador: listaDesarrolladoresCelular){
+			if(!listaDesarrolladoresJava.contains(desarrollador)){
+				if(listaDesarrolladoresWeb.contains(desarrollador)){
+					if(!lista.contains(desarrollador))
+						lista.add(desarrollador);
+				}
+			}
+		}
+		if(lista.isEmpty()){
+			return "No hay desarrolladores";
+		}else{
+			String consulta="Los desarrolladores son";
+			for(String desarrollador: lista){
+				consulta=consulta+"\n"+desarrollador;
+			}
+			return consulta;
+		}
+	}
+	
+	
 }
