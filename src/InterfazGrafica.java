@@ -390,7 +390,7 @@ public class InterfazGrafica {
 					label.setText("Desarrolladores de Web");
 					break;
 				case 3:
-					label.setText("Desarrolladores de Java");
+					label.setText("Desarrolladores de Celular");
 					break;
 				default:
 					label.setText("Ninguno");
